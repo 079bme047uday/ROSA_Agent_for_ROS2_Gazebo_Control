@@ -5,9 +5,9 @@ A natural language interface for controlling a mobile robot in Gazebo simulation
 
 Before running the agent, ensure you have the following installed and configured:
 
--   **ROS 2:** A working installation of ROS 2 (e.g., Humble or Iron).
+-   **ROS 2:** A working installation of ROS 2 (e.g., Humble or Jazzy).
 -   **Gazebo Simulation:** A Gazebo environment launched with your mobile robot model.
--   **Python Environment:** Python 3.8+ with pip.
+-   **Python Environment:** Python 3.12 or above with pip.
 -   **Environment Variables:** Your Azure OpenAI API credentials configured in a `.env` file (see below).
 
 ### 2. Installation
