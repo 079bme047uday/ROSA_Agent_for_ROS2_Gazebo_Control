@@ -64,7 +64,7 @@ The LLM is restricted to the following Python tools. Each tool directly publishe
 | `move_forward` | Publishes `Twist` to **`/cmd_vel`** | Moves the robot using a **time-based kinematic approximation**. |
 | `rotate` | Publishes `Twist` to **`/cmd_vel`** | Rotates the robot based on angular velocity over a duration. |
 | `set_initial_pose` | Publishes `PoseWithCovarianceStamped` to **`/initialpose`** | Resets the robot's pose for localization systems (e.g., AMCL/Nav2). |
-| `stop_robot` | Publishes zero-velocity `Twist` to `/cmd_vel` | Emergency stop function. |
+
 
 ### ⚠️ A Note on Accuracy (Time-Based Control)
 
