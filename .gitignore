@@ -1,0 +1,10 @@
+.vscode/
+build/
+install/
+log/
+mini_rosa/
+robot_llm/.env/
+robot_llm/__pycache__/
+*.env
+urdf_tutorial/
+*.pyc

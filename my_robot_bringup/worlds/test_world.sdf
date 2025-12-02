@@ -1,0 +1,119 @@
+<sdf version='1.9'>
+  <world name='empty'>
+    <physics name='1ms' type='ignored'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <scene>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <model name='ground_plane'>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode/>
+            </friction>
+            <bounce/>
+            <contact/>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+            <specular>0.800000012 0.800000012 0.800000012 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/pump/1</uri>
+      <name>pump</name>
+      <pose>2.6146102727922331 0.01100565612139337 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1</uri>
+      <name>Picking_Shelves</name>
+      <pose>0.50453153318565169 1.3523794441866082 -5.708546858685361e-07 1.2975134172468879e-19 1.072815313411333e-19 3.9678911182663931e-28</pose>
+    </include>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/picking_shelves/1</uri>
+      <name>Picking_Shelves_0</name>
+      <pose>2.1970256649072883 1.3301159384120833 -5.7085468586846464e-07 -9.5680847020274472e-20 -1.1888353472228897e-19 -2.9005896296765058e-27</pose>
+    </include>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/refrigerator/1</uri>
+      <name>Fridge</name>
+      <pose>-1.4183892436432752 0.49009611638654982 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/office chair/1</uri>
+      <name>OfficeChair</name>
+      <pose>0.54884055384610797 -2.4620657977517655 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/uday/.gz/fuel/fuel.gazebosim.org/openrobotics/models/office desk/1</uri>
+      <name>Desk</name>
+      <pose>0.44331499934196472 -1.5303000211715698 0 0 0 1.5639321933733514</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>
