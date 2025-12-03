@@ -20,6 +20,7 @@ Before running the agent, ensure you have the following installed and configured
 
 2.  **Install Python Dependencies(inside robot_llm directory):**
     ```bash
+    #these are all dependencies from jpl-rosa library, inside a separate environment for robot_llm directory one can also do (pip install jpl-rosa) 
     pip install -r requirements.txt
     
     ```
