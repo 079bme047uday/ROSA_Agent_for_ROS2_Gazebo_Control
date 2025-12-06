@@ -52,7 +52,7 @@ Before running the agent, ensure you have the following installed and configured
     The controller will start and prompt you for input:
 
     ```
-    🤖 ROSA Gazebo Robot Controller Active
+    ROSA Gazebo Robot Controller Active
     Robot Command >
     ```
 
@@ -67,6 +67,62 @@ The LLM is restricted to the following Python tools. Each tool directly publishe
 | `set_initial_pose` | Publishes `PoseWithCovarianceStamped` to **`/initialpose`** | Resets the robot's pose for localization systems (e.g., AMCL/Nav2). |
 
 
-### ⚠️ A Note on Accuracy (Time-Based Control)
+### 5. Advanced Features & Customization
+
+- **Add New Robot Skills:**
+  - Edit `test_robot.py` to add new @tool functions for your robot (e.g., sensor queries).
+  - Register new tools in the `tools` list for the agent.
+
+- **Change Topics/Parameters:**
+  - Update topic names (e.g., `/cmd_vel`) and parameters in `test_robot.py` to match your robot.
+  - Use ROS 2 parameters for easy launch-time configuration.
+
+- **Switch LLM Provider:**
+  - The agent uses Azure OpenAI by default. You can swap in OpenAI, local LLMs, or other providers by editing `llm_robot.py` and `.env`.
+
+- **Run in Real Robot:**
+  - The same agent can be used on a real robot if the topics and services match. Test in simulation first!
+
+---
+
+### 6. Troubleshooting
+
+- **Package Not Found:**
+  - Make sure you built and sourced your workspace:
+    ```bash
+    cd ~/ros2_ws
+    colcon build --packages-select robot_llm
+    source install/setup.bash
+    ```
+- **LLM API Errors:**
+  - Check your `.env` file for correct API keys and endpoint.
+  - Ensure your environment has internet access.
+- **Robot Not Moving:**
+  - Confirm Gazebo is running and `/cmd_vel` is being published.
+  - Check for topic name mismatches.
+- **Python Import Errors:**
+  - Install missing dependencies with `pip install -r requirements.txt`.
+
+---
+
+### 7. Contributing & Extending
+
+- Fork the repo and submit pull requests for new robot skills, LLM integrations, or bug fixes.
+- See `test_robot.py` for examples of adding new @tool functions.
+- For advanced LLM prompt engineering, see `llm_robot.py` and LangChain docs.
+
+---
+
+### 8. References
+
+- [ROS 2 Documentation](https://docs.ros.org/en/)
+- [Gazebo Documentation](https://gazebosim.org/docs)
+- [LangChain](https://python.langchain.com/)
+- [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/)
+- [JPL ROSA Documentation](https://github.com/nasa-jpl/rosa)
+
+
+###  A Note on Accuracy (Time-Based Control)
 
 The `move_forward` and `rotate` tools rely on **time** to estimate distance and angle (e.g., time = distance / speed). **For professional or precise navigation, this method is insufficient.** A robust system would subscribe to the **`/odom`** (odometry) topic and use feedback to accurately measure distance traveled. This project uses the time-based method for simplicity and demonstration purposes.
+
