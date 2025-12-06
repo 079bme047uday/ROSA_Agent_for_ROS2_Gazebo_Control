@@ -60,7 +60,7 @@ def rotate(angle_deg: float) -> str:
     start = time.time()
     while time.time() - start < duration:
         vel_pub.publish(vel)
-        rclpy.spin_once(node, timeout_sec=0.1) 
+        rclpy.spin_once(node, timeout_sec=0.5) 
 
     vel_pub.publish(Twist())
     return f"Rotated {angle_deg} degrees."
@@ -122,7 +122,7 @@ agent = ROSA(
 def run_interactive_agent():
     """Continuously prompts the user for commands and executes them."""
     print("\n========================================================")
-    print("🤖 ROSA Gazebo Robot Controller Active")
+    print("   ROSA Gazebo Robot Controller Active")
     print("   Enter your commands in natural language (e.g., 'move 5m forward').")
     print("   Type 'quit' or 'exit' to stop the controller.")
     print("========================================================")
@@ -144,7 +144,7 @@ def run_interactive_agent():
             result = agent.invoke(user_input)
             
             # Print the result from the agent
-            print(f"\n✅ Agent Execution Result:\n{result}")
+            print(f"\nAgent Execution Result:\n{result}")
 
         except KeyboardInterrupt:
             # Handle Ctrl+C gracefully
